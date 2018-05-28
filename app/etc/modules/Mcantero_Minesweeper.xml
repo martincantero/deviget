@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Mcantero_Minesweeper>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Mcantero_Minesweeper>
+    </modules>
+</config>

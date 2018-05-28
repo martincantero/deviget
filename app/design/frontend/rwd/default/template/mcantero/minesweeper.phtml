@@ -1,0 +1,18 @@
+<h2> ::: Minesweeper Setting ::: </h2>
+
+<form id="minesweeper_form" action="<?php echo Mage::getUrl('minesweeper/play/setup') ?>" method="POST">
+    ROW:<br>
+    <input type="number" name="width" value="" >
+    <br>
+    COLUMN:<br>
+    <input type="number" name="length" value="">
+    <br>
+    Mines:<br>
+    <input type="number" name="mines" value="">
+    <br><br>
+    <input type="submit" value="Play" class="button">
+</form>
+
+<div class="minesweeper">
+    <table id="minesweeper-board" action="<?php echo Mage::getUrl('minesweeper/play/hit') ?>"></table>
+</div>
