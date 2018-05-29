@@ -30,6 +30,10 @@ class Mcantero_Minesweeper_PlayController extends Mage_Core_Controller_Front_Act
         $this->renderLayout();
     }
 
+    /*
+     * Function create new matrix
+     * return array
+     */
     protected function createMatrix($width, $length)
     {
         $ret = array();
@@ -160,7 +164,22 @@ class Mcantero_Minesweeper_PlayController extends Mage_Core_Controller_Front_Act
     */
     protected function aroundMine($x, $y, $board, &$currentHits)
     {
+        if ($x < 0 || $x > Mage::getSingleton('core/session')->getCurrentBoardWidth() || $y < 0 ||
+            $y > Mage::getSingleton('core/session')->getCurrentBoardLength() ||
+            $board[$x][$y] == self::MINE) { // if I'm out of bounds or I'm over a mine, I skip it
+            return;
+        }
 
+        if ($board[$x][$y] == 0) {
+            $currentHits[$x][$y] = self::SAFE;
+        } elseif ($board[$x][$y] > 0) {
+            $currentHits[$x][$y] = $board[$x][$y];
+        }
+        //@TODO: replace logic for array NEIGHBORING_CELL
+        $this->aroundMine($x+1, $y, $board, $currentHits);
+        $this->aroundMine($x-1, $y, $board, $currentHits);
+        $this->aroundMine($x, $y+1, $board, $currentHits);
+        $this->aroundMine($x, $y-1, $board, $currentHits);
     }
 
     /*
