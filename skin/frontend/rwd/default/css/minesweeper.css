@@ -1,0 +1,25 @@
+#minesweeper-board {
+    margin: 20px auto;
+    background: black;
+}
+
+#minesweeper-board td {
+    line-height: 0;
+    border: 1px solid black;
+    width: 40px; height: 40px;
+    background: grey;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#minesweeper-board tr {
+    border: 1px solid black;
+}
+
+#minesweeper-board tr .safe {
+    background: white;
+}
+
+#minesweeper-board tr .flag {
+    background: yellow;
+}
